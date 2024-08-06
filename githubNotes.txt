@@ -7,4 +7,4 @@ git -v/ git --version
 3) git config --global core.editor "code --wait"
 4) git config --global core.autocrlf "true"---> FOR WINDOW // FOR MAC ---> "input"
 
- 
+ ghchjhgthfvikjl;jkjgvjhh;ok;vjgkvj/,jl;oijh;jhgojip
