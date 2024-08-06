@@ -1,0 +1,5 @@
+>> FOR CHECKING THE VERSION /CHECK IS GITHUB IS INSTALL IN SYSTEM 
+git -v/ git --version
+
+
+ 
