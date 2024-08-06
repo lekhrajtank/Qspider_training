@@ -1,0 +1,165 @@
+INTIATE MONGODB(DATABASE)
+
+C:\Users\lekhr>mongosh
+
+
+Current Mongosh Log ID: 66a076f32a248996f6ced588
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.4
+Using MongoDB:          7.0.5
+Using Mongosh:          2.1.4
+
+
+SHOWING THE DATABASE IN MONGO 
+
+test> show dbs
+admin   40.00 KiB
+config  72.00 KiB
+local   80.00 KiB
+
+CREATING NEW DATABASE
+
+test> use myDB2
+switched to db myDB2
+
+
+ADDING COLLECTION IN CREATE DATABASE(myDB2)
+
+
+myDB2> db.createCollection("myCollection")
+
+{ ok: 1 }
+myDB2> db.createCollection("myCollection2")
+
+{ ok: 1 }
+
+DISPLAYING COLLECTION
+
+myDB2> show collections
+
+myCollection
+myCollection2
+myDB2> show tables
+myCollection
+myCollection2
+
+
+TO insert one document
+
+> Json does not support the Undefined , Function and date.now() so we use BSON(Binary jSon)
+>This is object ID which is unique for every document , which is hndled by mongoDB ,this object id is a datatype of Binary JSON
+
+1) To insert many documents
+db.collection-name.insertMany([{doc1} ,{doc2} , {doc3},.....])
+
+2) Mongo is dynamic and schemaless
+
+EXAMPLE OF ABOVE (by creating school name database and collectins {student & teacher } in  this )
+
+
+myDB2> use school
+switched to db school
+
+school> db.createCollection("student")
+{ ok: 1 }
+school> show collections
+student
+
+school> db.createCollection("teacher")
+{ ok: 1 }
+
+school> show collections
+student
+teacher
+
+
+school> db.student.insertOne({name: "Vijay" , class : 12})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66a07b982a248996f6ced589')
+}
+
+
+school> db.student.insertOne({name:"Ajay" , class : 11})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66a07dd52a248996f6ced58a')
+}
+
+
+school> db.student.insertOne({name:"Varun" , class : 11})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66a07eaa2a248996f6ced58b')
+}
+
+
+TO FETCH ONE DOCUMENT
+
+
+school> db.student.findOne()
+
+{ _id: ObjectId('66a07b982a248996f6ced589'), name: 'Vijay', class: 12 }
+school>
+
+
+THIS COMMMAND SHOWS ALL THWE PROPERTY OF THE COLLECTION 
+
+school> db.student.
+
+db.student.__proto__
+db.student.constructor
+db.student.hasOwnProperty
+db.student.isPrototypeOf
+db.student.propertyIsEnumerable
+db.student.toLocaleString
+db.student.toString
+db.student.valueOf
+db.student.aggregate
+db.student.bulkWrite
+db.student.countDocuments
+db.student.deleteMany
+db.student.deleteOne
+db.student.distinct
+.
+.
+.
+
+
+To display the collection but hiding the id
+
+school> db.student.findOne({class : 12 }, {_id : 0 })
+{ name: 'Vijay', class: 12 }
+
+
+TO DELETE THE COLLECTION 
+
+school> db.teacher.drop()
+true
+school> show collections
+student
+
+TO DELETE A SINGLE DOCUMENT
+db.collection-name.deleteOne({filter/target})
+
+
+
+TO  DELETE MULTIPLE DOCUMENTS
+db.collection-name.deleteMany({filter})
+
+
+
+TO  UPDATE A SINGLE DOCUMENT
+db.collection-name.updateOne({filter} ,{updating value}, {options})
+
+db.emp.updateOne({emp:7499} ,{$set:{skills : ["java","c++"]} })
+
+
+TO UPDATE MULTIPLE DOCUMENTS
+db.collection-name.updateMany({filter} , {updating value} , {options} )
+
+db.emp.updateMany({} ,{$set : {isMarried : false} });
+
+db.emp.updateMany({eName : "allen"} ,{$unset : {skills : ""} });
+
+
+db.student

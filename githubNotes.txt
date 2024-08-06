@@ -1,5 +1,10 @@
 >> FOR CHECKING THE VERSION /CHECK IS GITHUB IS INSTALL IN SYSTEM 
 git -v/ git --version
 
+>> GLOBAL CONFIGURATION
+1) git config --global username "Lekhraj Tank"
+2) git config --global user.email "lekhrajtak229@gmail.com"
+3) git config --global core.editor "code --wait"
+4) git config --global core.autocrlf "true"---> FOR WINDOW // FOR MAC ---> "input"
 
  
