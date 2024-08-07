@@ -14,5 +14,14 @@ git -v/ git --version
  ---> To Edit In List 
       git config --global -e
 
+>> TO REMOVE THE ADD FILES
+---> For Single File 
+      git rm  --cached fileName.txt
+
+---> For Remove all file 
+      git rm --cached  .
+      
+           
+
 
 
