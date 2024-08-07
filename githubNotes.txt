@@ -7,4 +7,12 @@ git -v/ git --version
 3) git config --global core.editor "code --wait"
 4) git config --global core.autocrlf "true"---> FOR WINDOW // FOR MAC ---> "input"
 
- 
+ >> TO EDIT GLOBAL CONFIGURATION FILE 
+ ---> To Check The List 
+      git config --global --list 
+
+ ---> To Edit In List 
+      git config --global -e
+
+
+
