@@ -162,4 +162,4 @@ db.emp.updateMany({} ,{$set : {isMarried : false} });
 db.emp.updateMany({eName : "allen"} ,{$unset : {skills : ""} });
 
 
-db.student
+

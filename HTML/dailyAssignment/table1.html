@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table1</title>
+
+    <style>
+        body{
+            background: black;
+            color: aliceblue;
+            text-align: center;
+            align-items: center;
+        }
+
+        table{
+            margin-top: 200px;
+        }
+
+        th,.span{
+            background: whitesmoke;
+            color: black;
+        }
+
+        td:hover{
+            background-color:#3C3D37;
+        }
+
+        .span:hover{
+            background-color: #3C3D37;
+            color: ECDFCC;
+        }
+        th:hover{
+            background-color: #3C3D37;
+            color: ECDFCC;
+        }
+    </style>
+</head>
+<body>
+    <table border="2" cellpadding="7" cellspacing="5" rule="all" align="center">
+        <thead>
+            <tr>
+                <th>Days</th>
+                <th>First half</th>
+                <th>Break</th>
+                <th>Second half</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td >OS</td>
+                <td class="span" rowspan="5" align="center">LUNCH BREAK</td>
+                <td>DBMS</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>Java</td>
+                <td>DSA</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>Web</td>
+                <td>Computer Networking</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>Cyber Securities</td>
+                <td>DP</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>Cloud Computing</td>
+                <td>System Design</td>
+            </tr>
+        </tbody>
+            <tfoot>
+            <tr>
+                <td>Saturday</td>
+                <td class="span" rowspan="2" colspan="3" align="center">WEEK OFF</td>
+                
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

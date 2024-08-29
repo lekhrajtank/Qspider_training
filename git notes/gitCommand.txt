@@ -1,0 +1,15 @@
+1) git init          {TO initialize git file in folder)
+
+2) git add .    (for adding file)    &    git add specificFile.txt (for adding any specific file)
+
+3) git status 
+
+4) git commit -m "First commit"
+
+5) git branch -m Main    {TO change the name of master branch to main branch }
+
+6) git remote add origin  https://github.....
+
+7) git push -u origin main
+
+

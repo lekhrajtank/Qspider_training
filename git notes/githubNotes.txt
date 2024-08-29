@@ -1,0 +1,71 @@
+>> FOR CHECKING THE VERSION /CHECK IS GITHUB IS INSTALL IN SYSTEM 
+git -v/ git --version
+
+>>CHECKING IN GIT
+---> TO CHECK HIDDEN FILE (Eg:-.git FILE)
+     ls -a
+---> TO CHECK REMOTE (GITHUB LINK)
+     git remote -v
+---> TO CHECK DIFFERENCE BETWEEN TWO BRANCHES
+     git diff BranchName
+
+>> GLOBAL CONFIGURATION
+1) git config --global username "Lekhraj Tank"
+2) git config --global user.email "lekhrajtak229@gmail.com"
+3) git config --global core.editor "code --wait"
+4) git config --global core.autocrlf "true"---> FOR WINDOW // FOR MAC ---> "input"
+
+ >> TO EDIT GLOBAL CONFIGURATION FILE 
+ ---> To Check The List 
+      git config --global --list 
+
+ ---> To Edit In List 
+      git config --global -e
+
+>> TO REMOVE THE ADD FILES
+---> For Single File 
+      git rm  --cached fileName.txt
+
+---> For Remove all file 
+      git rm --cached  .
+
+
+>> BRANCH IN GITHUB
+---> To create branch
+     git branch branchName/testing
+--->  To Checking how many branches
+     git branch
+---> Switching between the branches
+     git switch branchName/testing
+---> For merging  of branches
+     git merge branchName/testing    {FIRST YOU SWITCH TO MAIN BRANCH AND THEN MERGE THE OTHER CREATED BRANCH}
+---> For deleting the branch
+     git branch -d branchName/testing
+
+
+>> AFTER COMMIT 
+---> To check the commit history 
+     git log --oneline 
+---> To move the head on particular commit 
+     git checkout main   {FOR MOVE THE HEAD ON MAIN}
+     git checkout commitHashId 
+
+>> For revert after the commit 
+   git revert CommitHashId
+>> For deleting an commit (Not generally used because it delete and never restore after)
+   git resert --hard commitHashId
+
+
+
+
+
+
+
+
+
+
+      
+           
+
+
+

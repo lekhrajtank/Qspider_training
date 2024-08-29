@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Mapping</title>
+
+    <style>
+        *{
+          margin: 0;
+          padding: 0;
+          background-color: 6C4E31;
+          color: #FFEAC5;
+
+        }
+        div{
+            margin-top: 200px;
+            margin-left: 700px;
+            
+        }
+        
+    </style>
+
+</head>
+
+
+<body>
+    
+    <!-- HOW TO SELECT AN IMAGE IN IMAGE -->
+      <div>
+        <h1>HARI-HAR <br></h1>
+    <img src="./img/lord.jpeg" alt="Hari-Har" usemap="#firstMAp">
+
+    <map name="firstMAp" >
+        <area shape="rect" coords="47,145,147,337,29,273" href="https://en.wikipedia.org/wiki/Krishna" alt="Hari" target="_blank">
+        <area shape="rect" coords="189,181,197,191,178,196,208,175" href="https://en.wikipedia.org/wiki/Sudarshana_Chakra" alt="Sudarshana Chakra" target="_blank">
+        <area shape="poly" coords="229,27,263,205,192,141,327,210" href="https://en.wikipedia.org/wiki/Shiva" alt="Har" target="_blank">
+    </map>
+  </div>
+
+</body>
+</html>
