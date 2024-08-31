@@ -1,0 +1,222 @@
+fs ==> it stands for file system
+
+to interact with os and perform CRUD on files and folders/directory
+
+>>For importing the module
+// syntax : let/const variableName = require("node:module-name");
+
+// let fs = require("fs");
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>1] synchronous way or blocking way<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+   
+
+   A)========================= Read file sync=========================
+
+       // method name == readFileSync()
+ 
+  >> let data = fs.readFileSync("./data.txt");
+    console.log(data.toString());
+
+  >> let data = fs.readFileSync("./data.txt",utf-8);
+
+
+  B) =========================Write file sync=========================
+    
+      // method name ==> writeFileSync()
+
+
+     >>  fs.writeFileSync("./index.txt", "this is a txt file and data is inserted through fs module");
+
+       
+    ==>  fs.writeFileSync("./index.txt", "this is another statement");
+
+
+   //? if we pass a file name which is not present then it will create a new file with the provided data
+  //? if we pass a file name which is already present, then it will over write the existing data with the new one.
+
+
+
+ C) =================update/append file=========================
+     
+          // method name ==> appendFileSync()
+
+   >> fs.appendFileSync("./data.txt", " this is updated statement");
+
+
+    //? if we pass the path of existing file then it will update/append the data otherwise it will create a new file with the provided data.
+
+  D) ===============================delete file =================
+      //method name ==> unlinkSync()
+   >> fs.unlinkSync("./index.html");
+
+           #########copy the contents of "fs.js" to a new file "home.js"#################
+                               console.log("start");
+                               let readFile = fs.readFileSync("./fs.js", "utf-8");
+                               fs.writeFileSync("./home.js", readFile);
+                               console.log("file created");
+
+  E)======================== CRUD of folders ==========================
+
+       !!!!!!!!!!!!!!1) creating a folder!!!!!!!!!!!!!!!!!
+               // method name ==> mkdirSync()
+
+               // fs.mkdirSync("express");
+               // console.log("folder created");
+
+!!!!!!!!!!!!!!!!!create a folder inside local folder!!!!!!!!!!!!!!!!!
+          // fs.mkdirSync("../local/users");
+         // console.log("folder created");
+
+F) =================delete a folder===================
+        // method name ==> rmdirSync()
+ 
+      >> fs.rmdirSync("./express");
+         console.log("folder deleted");
+
+G) =================renaming a folder/file=================
+        // method name ==> renameSync()
+           >> fs.renameSync("data.txt", "data1.txt");
+           >> fs.renameSync("demo", "test");
+
+
+ 
+//? "backend/src/controllers/user.js" ==> nested operation (creation)
+// root folder ==> backend
+
+
+                // fs.mkdirSync("../../backend/src/controllers"); this will not work
+               // fs.rmdirSync("../../backend"); this will also not work as folder must be empty
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> async execution <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+                       // ==> using callbacks ==> using then, catch ==> using async await
+
+                             ============async using callbacks=======================
+
+=============1) create a file===============
+ 
+       fs.writeFile("../index.txt", "this is some data", (err) => {
+       if (err) console.log(err);
+       console.log("file created");
+        });
+       console.log("end");
+
+============2) reading a file================
+   
+   // syntax ==> fs.readFile("path", "encoding", cb)
+
+     fs.readFile("./fs.js", "utf-8", (err, param2) => {
+     if (err) console.log(err);
+     console.log("file read");
+     console.log(param2);
+      });
+    console.log("end");
+
+===========3) update or append file===============
+    
+
+      fs.appendFile("./index.txt", " this is second statement", (err) => {
+      if (err) throw err;
+      console.log("file updated");
+      });
+      console.log("end");
+
+==========4) deleting a file=====================
+     
+   
+      fs.unlink("./index.txt", (err) => {
+      if (err) throw err;
+      console.log("file deleted");
+      });
+     console.log("end");
+
+ ===========5) CREATING A FOLDER=================
+    
+
+       fs.mkdir("../built-in1", (err) => {
+       if (err) throw err;
+       console.log("folder created");
+       });
+       console.log("end");
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>using then/catch<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+             let fs = require("fs").promises;        TO IMPORT PROMSISES IN FS MODULE
+         OR  let fs = require("fs/promises");
+
+=================1) creating a file=====================
+
+
+          let data = fs.writeFile("./index.js", "data to be added");
+          data
+         .then(() => {
+         console.log("file created");
+          })
+        .catch((err) => {
+         console.log("err", err);
+         });
+
+
+
+================ 2) reading a file ====================
+     
+            fs.readFile("./index.js", "utf-8")
+            .then((result) => {
+             console.log(result);
+              })
+            .catch((err) => {
+             console.log(err);
+              });
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!copy the contents of "fs.js" to new file "index.txt" using then/catch!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// fs.readFile("./fs.js", "utf-8")
+//   .then((result) => {
+//     fs.writeFile("./index.txt", result)
+//       .then(() => {
+//         console.log("file copy pasted");
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+==================================3) updating a file===============================
+            
+                 fs.appendFile("./index.txt", "data to be added")
+                 .then(() => {
+                  console.log("file appended");
+                    })
+                 .catch((err) => {
+                  console.log(err);
+                   });
+
+======================4) DELETING A file=======================
+         
+             fs.unlink("./index.txt")
+             .then(() => {
+              console.log("file deleted");
+                })
+             .catch((err) => {
+             console.log(err);
+              });
+
+=================creating a folder===========================
+      
+
+                 fs.mkdir("./node_modules")
+                .then(() => {
+                 console.log("folder created");
+                 })
+                .catch((err) => {
+                 console.log(err);
+                   });
+
+
